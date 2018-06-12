@@ -1,0 +1,23 @@
+name: morphic
+recipe: pantheon
+config:
+  framework: drupal
+  site: morphic
+  id: cd4946aa-82ea-4d94-bd16-9f0f0fa81c85
+
+services:
+  node:
+    type: node:6.10
+    run:
+      - "cd $LANDO_MOUNT && npm install"
+      - "cd $LANDO_MOUNT && gulp"
+    globals:
+      gulp-cli: "latest"
+
+tooling:
+  npm:
+    service: node
+  node:
+    service: node
+  gulp:
+    service: node
